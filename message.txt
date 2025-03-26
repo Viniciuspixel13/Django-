@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolsa Technologies - Green Energy Solutions</title>
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        /* Accessibility Features */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #4CAF50;
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            color: #2E7D32;
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style-type: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav ul li a:hover, nav ul li a:focus {
+            background-color: #E8F5E9;
+            color: #2E7D32;
+        }
+        
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover, .btn:focus {
+            background-color: #2E7D32;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #2E7D32;
+            font-size: 2rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover, .service-card:focus-within {
+            transform: translateY(-5px);
+        }
+        
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 10px;
+            color: #2E7D32;
+        }
+        
+        /* Carbon Calculator Section */
+        .calculator {
+            background-color: #E8F5E9;
+            padding: 80px 0;
+        }
+        
+        .calculator-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .results {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            display: none;
+        }
+        
+        .results.active {
+            display: block;
+        }
+        
+        /* Scheduling Section */
+        .scheduling {
+            padding: 80px 0;
+        }
+        
+        .scheduling-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .calendar {
+            margin-bottom: 30px;
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+        }
+        
+        .calendar-day {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .calendar-day.available {
+            background-color: #E8F5E9;
+        }
+        
+        .calendar-day.selected {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style-type: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+        }
+        
+        .footer-column a:hover, .footer-column a:focus {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+        
+        /* Login Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 400px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        .close {
+            float: right;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        /* About Us Section */
+        .about {
+            padding: 80px 0;
+            background-color: #f4f9f4;
+        }
+        
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-content h3 {
+            color: #2E7D32;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .team-member {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .team-member img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .team-member-content {
+            padding: 20px;
+        }
+        
+        .team-member h4 {
+            color: #2E7D32;
+            margin-bottom: 5px;
+        }
+        
+        .team-member p.role {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-form {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        
+        .contact-info {
+            background-color: #E8F5E9;
+            border-radius: 8px;
+            padding: 30px;
+        }
+        
+        .contact-info h3 {
+            color: #2E7D32;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info-item i {
+            margin-right: 10px;
+            color: #4CAF50;
+        }
+        
+        .map {
+            margin-top: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 250px;
+            background-color: #ddd;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #E8F5E9;
+            padding: 80px 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 30px;
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 4rem;
+            color: #E8F5E9;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+            color: #2E7D32;
+        }
+        
+        .author-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+        }
+        
+        .accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .accordion-item {
+            background-color: #fff;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .accordion-header {
+            padding: 15px 20px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .accordion-header h3 {
+            font-size: 1.1rem;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .accordion-content {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s;
+        }
+        
+        .accordion-content.active {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .about-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="/api/placeholder/50/50" alt="Rolsa Technologies Logo"> 
+                    <h1>Rolsa Technologies</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#calculator">Carbon Calculator</a></li>
+                        <li><a href="#scheduling">Schedule Consultation</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><button class="btn" id="loginBtn">Login / Register</button></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Sustainable Energy Solutions for a Greener Future</h2>
+            <p>Rolsa Technologies provides cutting-edge solar panel installation, electric vehicle charging stations, and smart home energy management systems to help you reduce your carbon footprint.</p>
+            <button class="btn" onclick="document.getElementById('calculator').scrollIntoView({behavior: 'smooth'})">Calculate Your Carbon Footprint</button>
+        </div>
+    </section>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title">Our Green Energy Solutions</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <img src="/api/placeholder/400/200" alt="Solar Panel Installation">
+                        <div class="service-content">
+                            <h3>Solar Panel Installation</h3>
+                            <p>Harness the power of the sun with our premium solar panel systems. We offer comprehensive installation services for residential and commercial properties.</p>
+                            <a href="#" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="/api/placeholder/400/200" alt="EV Charging Stations">
+                        <div class="service-content">
+                            <h3>EV Charging Stations</h3>
+                            <p>Power your electric vehicle with clean energy. Our charging stations are designed for convenience, efficiency, and sustainability.</p>
+                            <a href="#" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="/api/placeholder/400/200" alt="Smart Home Energy Systems">
+                        <div class="service-content">
+                            <h3>Smart Home Energy Systems</h3>
+                            <p>Optimize your energy usage with our intelligent home management systems. Monitor and control your energy consumption for maximum efficiency.</p>
+                            <a href="#" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Carbon Calculator Section -->
+        <section id="calculator" class="calculator">
+            <div class="container">
+                <h2 class="section-title">Calculate Your Carbon Footprint</h2>
+                <div class="calculator-container">
+                    <form id="carbonForm">
+                        <div class="form-group">
+                            <label for="homeSize">Home Size (sq ft)</label>
+                            <input type="number" id="homeSize" name="homeSize" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="energyUsage">Monthly Energy Usage (kWh)</label>
+                            <input type="number" id="energyUsage" name="energyUsage" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="residents">Number of Residents</label>
+                            <input type="number" id="residents" name="residents" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="vehicles">Number of Vehicles</label>
+                            <input type="number" id="vehicles" name="vehicles" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="vehicleType">Primary Vehicle Type</label>
+                            <select id="vehicleType" name="vehicleType" required>
+                                <option value="">Select a vehicle type</option>
+                                <option value="electric">Electric</option>
+                                <option value="hybrid">Hybrid</option>
+                                <option value="gas">Gasoline</option>
+                                <option value="diesel">Diesel</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn">Calculate</button>
+                    </form>
+                    <div id="calculatorResults" class="results">
+                        <h3>Your Carbon Footprint Results</h3>
+                        <p>Based on your inputs, your estimated carbon footprint is:</p>
+                        <div id="carbonScore"></div>
+                        <div id="recommendations"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Scheduling Section -->
+        <section id="scheduling" class="scheduling">
+            <div class="container">
+                <h2 class="section-title">Schedule a Free Consultation</h2>
+                <div class="scheduling-container">
+                    <p>Book a free consultation with our energy experts to discuss sustainable solutions for your home or business.</p>
+                    
+                    <div class="calendar">
+                        <h3>Select a Date</h3>
+                        <div class="calendar-grid">
+                            <!-- This would typically be generated with JavaScript -->
+                            <div class="calendar-day">Mon<br>1</div>
+                            <div class="calendar-day">Tue<br>2</div>
+                            <div class="calendar-day">Wed<br>3</div>
+                            <div class="calendar-day available">Thu<br>4</div>
+                            <div class="calendar-day available">Fri<br>5</div>
+                            <div class="calendar-day">Sat<br>6</div>
+                            <div class="calendar-day">Sun<br>7</div>
+                            <div class="calendar-day available">Mon<br>8</div>
+                            <div class="calendar-day available">Tue<br>9</div>
+                            <div class="calendar-day available">Wed<br>10</div>
+                            <div class="calendar-day">Thu<br>11</div>
+                            <div class="calendar-day">Fri<br>12</div>
+                            <div class="calendar-day available">Sat<br>13</div>
+                            <div class="calendar-day">Sun<br>14</div>
+                        </div>
+                    </div>
+                    
+                    <form id="consultationForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="consultationType">Consultation Type</label>
+                            <select id="consultationType" name="consultationType" required>
+                                <option value="">Select a consultation type</option>
+                                <option value="solar">Solar Panel Installation</option>
+                                <option value="ev">EV Charging Station</option>
+                                <option value="smart">Smart Home Energy System</option>
+                                <option value="comprehensive">Comprehensive Energy Assessment</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Additional Information</label>
+                            <textarea id="message" name="message" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Schedule Consultation</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Us Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">About Rolsa Technologies</h2>
+                <div class="about-container">
+                    <div class="about-image">
+                        <img src="/api/placeholder/600/400" alt="Rolsa Technologies Team">
+                    </div>
+                    <div class="about-content">
+                        <h3>Our Mission</h3>
+                        <p>At Rolsa Technologies, we're committed to accelerating the world's transition to sustainable energy. Founded in 2015, we've helped thousands of homes and businesses reduce their carbon footprint through innovative green energy solutions.</p>
+                        <p>Our team of dedicated engineers, technicians, and energy consultants brings decades of combined experience in renewable energy technologies. We believe that transitioning to clean energy shouldn't be complicated or expensive, which is why we provide comprehensive services and flexible financing options.</p>
+                        <p>We're proud to be certified by the Green Energy Council and the Solar Energy Industries Association, ensuring all our installations meet the highest industry standards.</p>
+                    </div>
+                </div>
+                
+                <h3 class="section-title" style="margin-top: 60px;">Our Team</h3>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="/api/placeholder/300/300" alt="Sarah Johnson">
+                        <div class="team-member-content">
+                            <h4>Sarah Johnson</h4>
+                            <p class="role">Founder & CEO</p>
+                            <p>With 15+ years in renewable energy, Sarah leads Rolsa's mission to make sustainable energy accessible to all.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="/api/placeholder/300/300" alt="Michael Chen">
+                        <div class="team-member-content">
+                            <h4>Michael Chen</h4>
+                            <p class="role">Chief Technology Officer</p>
+                            <p>Michael oversees all technical aspects of our installations and leads our R&D department.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="/api/placeholder/300/300" alt="Elena Rodriguez">
+                        <div class="team-member-content">
+                            <h4>Elena Rodriguez</h4>
+                            <p class="role">Lead Energy Consultant</p>
+                            <p>Elena helps clients find the perfect energy solutions to meet their needs and maximize efficiency.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="/api/placeholder/300/300" alt="David Williams">
+                        <div class="team-member-content">
+                            <h4>David Williams</h4>
+                            <p class="role">Installation Manager</p>
+                            <p>David ensures all installations are completed to the highest standards of quality and safety.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <h2 class="section-title">What Our Clients Say</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>Rolsa Technologies transformed our home with a state-of-the-art solar system. We're now generating more electricity than we use, and our energy bills have been eliminated. The installation was smooth, and their team was professional and knowledgeable.</p>
+                            <div class="testimonial-author">
+                                <img src="/api/placeholder/50/50" alt="John & Lisa Miller">
+                                <div class="author-info">
+                                    <h4>John & Lisa Miller</h4>
+                                    <p>Residential Solar Clients</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>Our company was looking for eco-friendly solutions for our office building. Rolsa provided a comprehensive energy audit and installed a hybrid system of solar panels and smart energy management. We've reduced our carbon footprint by 70% and saved thousands on energy costs.</p>
+                            <div class="testimonial-author">
+                                <img src="/api/placeholder/50/50" alt="Robert Anderson">
+                                <div class="author-info">
+                                    <h4>Robert Anderson</h4>
+                                    <p>CEO, Green Solutions Inc.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>The EV charging station installed by Rolsa has been a game-changer for our apartment complex. Our residents love the convenience, and it's become a major selling point for new tenants. The team at Rolsa was responsive and made the entire process incredibly easy.</p>
+                            <div class="testimonial-author">
+                                <img src="/api/placeholder/50/50" alt="Maria Kim">
+                                <div class="author-info">
+                                    <h4>Maria Kim</h4>
+                                    <p>Property Manager</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>How much do solar panels cost?</h3>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>The cost of solar panel installation varies depending on your energy needs, property size, and the system you choose. On average, residential installations range from $15,000 to $25,000 before federal tax credits and incentives. Many of our customers see a return on investment within 5-7 years through energy savings. We offer free consultations where we can provide a detailed quote based on your specific situation.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>What financial incentives are available for renewable energy?</h3>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>There are several financial incentives available for renewable energy installations. These include the Federal Solar Investment Tax Credit (ITC), which allows you to deduct 26% of the cost of installing a solar energy system from your federal taxes. Many states also offer additional tax credits, rebates, and Solar Renewable Energy Certificates (SRECs). Additionally, some utility companies provide performance-based incentives and net metering programs. Our team can help you navigate these incentives to maximize your savings.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>How long do solar panels last?</h3>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Modern solar panels are designed to last 25-30 years or longer. Most manufacturers offer warranties of 25 years, guaranteeing that panels will continue to produce at least 80% of their rated output after this period. The inverters typically have a shorter lifespan of 10-15 years and may need to be replaced during the lifetime of your solar system. At Rolsa Technologies, we only use high-quality, durable equipment backed by comprehensive warranties, and we offer maintenance plans to ensure optimal performance throughout the system's lifetime.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>How long does installation take?</h3>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>The actual installation of a residential solar system typically takes 1-3 days, depending on the system size and complexity. However, the entire process, including site assessment, design, permitting, and final inspection, usually takes 2-3 months. For EV charging stations, installation can be completed in 1-2 days, with the entire process taking 2-4 weeks. Smart home energy management systems generally require 1-2 days for installation and configuration. Our team works efficiently to minimize disruption to your home or business.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Do EV charging stations work with all electric vehicles?</h3>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>We install Level 2 charging stations that are compatible with all major electric vehicle models sold in North America. These chargers use the J1772 connector, which is the standard for most EVs. For Tesla vehicles, a simple adapter (typically included with the vehicle) allows connection to our charging stations. We also offer DC fast charging solutions for commercial applications, which can be equipped with multiple connector types to accommodate different vehicle standards.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Contact Us</h2>
+                <div class="contact-container">
+                    <div class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="contactName">Full Name</label>
+                                <input type="text" id="contactName" name="contactName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail">Email Address</label>
+                                <input type="email" id="contactEmail" name="contactEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactPhone">Phone Number</label>
+                                <input type="tel" id="contactPhone" name="contactPhone">
+                            </div>
+                            <div class="form-group">
+                                <label for="contactSubject">Subject</label>
+                                <input type="text" id="contactSubject" name="contactSubject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactMessage">Message</label>
+                                <textarea id="contactMessage" name="contactMessage" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <div class="contact-info-item">
+                            <i>📍</i>
+                            <p>123 Green Energy Way, Sustainable City, SC 12345</p>
+                        </div>
+                        <div class="contact-info-item">
+                            <i>📞</i>
+                            <p>(555) 123-4567</p>
+                        </div>
+                        <div class="contact-info-item">
+                            <i>✉️</i>
+                            <p>info@rolsatech.com</p>
+                        </div>
+                        <div class="contact-info-item">
+                            <i>⏰</i>
+                            <p>Monday - Friday: 8am - 6pm<br>Saturday: 9am - 2pm<br>Sunday: Closed</p>
+                        </div>
+                        <div class="map">
+                            <!-- Placeholder for map -->
+                            <img src="/api/placeholder/500/250" alt="Office Location Map" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section id="projects" class="services" style="background-color: #f4f9f4;">
+            <div class="container">
+                <h2 class="section-title">Our Recent Projects</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <img src="/api/placeholder/400/200" alt="Commercial Solar Installation">
+                        <div class="service-content">
+                            <h3>Greenfield Business Park</h3>
+                            <p>A 500kW commercial solar installation powering 15 businesses. This project reduced carbon emissions by 450 tons annually, equivalent to planting 21,000 trees.</p>
+                            <a href="#" class="btn">View Case Study</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="/api/placeholder/400/200" alt="Residential Community">
+                        <div class="service-content">
+                            <h3>Sunrise Community</h3>
+                            <p>Installation of solar panels and smart energy systems for 50 homes in a new eco-friendly development, creating a net-zero energy community.</p>
+                            <a href="#" class="btn">View Case Study</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="/api/placeholder/400/200" alt="EV Charging Network">
+                        <div class="service-content">
+                            <h3>City EV Network</h3>
+                            <p>A network of 25 public EV charging stations powered by renewable energy, supporting the city's transition to electric transportation.</p>
+                            <a href="#" class="btn">View Case Study</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Resources Section -->
+        <section id="resources" class="services">
+            <div class="container">
+                <h2 class="section-title">Resources & Education</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <img src="/api/placeholder/400/200" alt="Green Energy Guide">
+                        <div class="service-content">
+                            <h3>Green Energy Guide</h3>
+                            <p>Our comprehensive guide to understanding renewable energy options, technologies, and benefits for homeowners and businesses.</p>
+                            <a href="#" class="btn">Download Guide</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="/api/placeholder/400/200" alt="Energy Savings Calculator">
+                        <div class="service-content">
+                            <h3>Energy Savings Calculator</h3>
+                            <p>An interactive tool to estimate your potential energy savings and return on investment with various green energy solutions.</p>
+                            <a href="#" class="btn">Try Calculator</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="/api/placeholder/400/200" alt="Video Library">
+                        <div class="service-content">
+                            <h3>Video Library</h3>
+                            <p>Educational videos on renewable energy technologies, installation processes, and maintenance tips for your green energy systems.</p>
+                            <a href="#" class="btn">Watch Videos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Solar Panel Installation</a></li>
+                        <li><a href="#">EV Charging Stations</a></li>
+                        <li><a href="#">Smart Home Energy Systems</a></li>
+                        <li><a href="#">Energy Audits</a></li>
+                        <li><a href="#">Maintenance & Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Guides & E-books</a></li>
+                        <li><a href="#">Energy Savings Calculator</a></li>
+                        <li><a href="#">Videos</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#projects">Our Projects</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Partner With Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Rolsa Technologies. All rights reserved.</p>
+                <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Sitemap</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 style="color: #2E7D32; margin-bottom: 20px;">Login to Your Account</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" name="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" name="loginPassword" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Login</button>
+                <p style="text-align: center; margin-top: 20px;">Don't have an account? <a href="#" id="registerLink" style="color: #4CAF50;">Register</a></p>
+                <p style="text-align: center; margin-top: 10px;"><a href="#" style="color: #4CAF50;">Forgot Password?</a></p>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Registration Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 style="color: #2E7D32; margin-bottom: 20px;">Create an Account</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="regName">Full Name</label>
+                    <input type="text" id="regName" name="regName" required>
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email Address</label>
+                    <input type="email" id="regEmail" name="regEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPhone">Phone Number</label>
+                    <input type="tel" id="regPhone" name="regPhone">
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" name="regPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="regConfirmPassword">Confirm Password</label>
+                    <input type="password" id="regConfirmPassword" name="regConfirmPassword" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Register</button>
+                <p style="text-align: center; margin-top: 20px;">Already have an account? <a href="#" id="loginLink" style="color: #4CAF50;">Login</a></p>
+            </form>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script>
+        // Modal Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginBtn = document.getElementById('loginBtn');
+            const loginModal = document.getElementById('loginModal');
+            const registerModal = document.getElementById('registerModal');
+            const closeBtns = document.querySelectorAll('.close');
+            const registerLink = document.getElementById('registerLink');
+            const loginLink = document.getElementById('loginLink');
+            
+            loginBtn.addEventListener('click', function() {
+                loginModal.style.display = 'block';
+            });
+            
+            registerLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                loginModal.style.display = 'none';
+                registerModal.style.display = 'block';
+            });
+            
+            loginLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                registerModal.style.display = 'none';
+                loginModal.style.display = 'block';
+            });
+            
+            closeBtns.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    loginModal.style.display = 'none';
+                    registerModal.style.display = 'none';
+                });
+            });
+            
+            window.addEventListener('click', function(e) {
+                if (e.target == loginModal) {
+                    loginModal.style.display = 'none';
+                }
+                if (e.target == registerModal) {
+                    registerModal.style.display = 'none';
+                }
+            });
+            
+            // Carbon Calculator Functionality
+            const carbonForm = document.getElementById('carbonForm');
+            const calculatorResults = document.getElementById('calculatorResults');
+            const carbonScore = document.getElementById('carbonScore');
+            const recommendations = document.getElementById('recommendations');
+            
+            carbonForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const homeSize = parseFloat(document.getElementById('homeSize').value);
+                const energyUsage = parseFloat(document.getElementById('energyUsage').value);
+                const residents = parseInt(document.getElementById('residents').value);
+                const vehicles = parseInt(document.getElementById('vehicles').value);
+                const vehicleType = document.getElementById('vehicleType').value;
+                
+                // Simple calculation (this would be more complex in a real application)
+                let score = (energyUsage * 0.5) + (homeSize * 0.1);
+                
+                // Adjust for vehicle type
+                if (vehicleType === 'electric') {
+                    score *= 0.7;
+                } else if (vehicleType === 'hybrid') {
+                    score *= 0.85;
+                } else if (vehicleType === 'diesel') {
+                    score *= 1.2;
+                }
+                
+                // Adjust for number of residents (economies of scale)
+                score = score / Math.sqrt(residents);
+                
+                // Adjust for number of vehicles
+                score += (vehicles * 200);
+                
+                // Display results
+                carbonScore.innerHTML = `<h4>${Math.round(score)} kg CO2 per month</h4>`;
+                
+                // Generate recommendations
+                let recommendationText = '<h4>Recommendations:</h4><ul>';
+                
+                if (energyUsage > 500) {
+                    recommendationText += '<li>Consider installing solar panels to reduce grid electricity usage.</li>';
+                }
+                
+                if (vehicleType === 'gas' || vehicleType === 'diesel') {
+                    recommendationText += '<li>Switch to an electric or hybrid vehicle to significantly reduce emissions.</li>';
+                }
+                
+                if (homeSize > 2000) {
+                    recommendationText += '<li>Implement a smart home energy management system to optimize energy usage.</li>';
+                }
+                
+                recommendationText += '<li>Schedule a detailed energy audit for personalized recommendations.</li>';
+                recommendationText += '</ul>';
+                
+                recommendations.innerHTML = recommendationText;
+                
+                // Show results
+                calculatorResults.classList.add('active');
+            });
+            
+            // Calendar Selection Functionality
+            const calendarDays = document.querySelectorAll('.calendar-day');
+            
+            calendarDays.forEach(function(day) {
+                day.addEventListener('click', function() {
+                    if (day.classList.contains('available')) {
+                        // Deselect all days
+                        calendarDays.forEach(function(d) {
+                            d.classList.remove('selected');
+                        });
+                        // Select clicked day
+                        day.classList.add('selected');
+                    }
+                });
+            });
+            
+            // Accordion Functionality for FAQs
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            
+            accordionHeaders.forEach(function(header) {
+                header.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const isActive = content.classList.contains('active');
+                    
+                    // Close all accordion items
+                    document.querySelectorAll('.accordion-content').forEach(function(item) {
+                        item.classList.remove('active');
+                    });
+                    
+                    // Open clicked item if it wasn't already open
+                    if (!isActive) {
+                        content.classList.add('active');
+                        this.querySelector('.accordion-icon').textContent = '-';
+                    } else {
+                        this.querySelector('.accordion-icon').textContent = '+';
+                    }
+                    
+                    // Reset all icons
+                    document.querySelectorAll('.accordion-icon').forEach(function(icon) {
+                        icon.textContent = '+';
+                    });
+                    
+                    // Set icon for current item
+                    if (!isActive) {
+                        this.querySelector('.accordion-icon').textContent = '-';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
